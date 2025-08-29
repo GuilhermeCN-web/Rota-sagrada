@@ -1,5 +1,6 @@
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { Text, View, TextInput, Image, TouchableOpacity } from "react-native";
+import { Link } from 'expo-router';
 
 export default function Index() {
   return (
@@ -10,11 +11,11 @@ export default function Index() {
           backgroundColor: "#FFC03F",
           flexDirection: "row",
           alignItems: "center",
-          height: 70,
+          height: 50,
         }}
       >
         <Ionicons
-          name="location"
+          name="location-outline"
           size={32}
           color="white"
         />
@@ -68,15 +69,16 @@ export default function Index() {
       <Image
         source={require("../assets/images/rotas1.webp")}
         style={{ 
-          width: "90%", 
-          height: 250, 
+          width: "85%", 
+          height: "50%", 
           margin: 10, 
           alignSelf: "center",
         }}
       />
       <TouchableOpacity
       style={{
-        backgroundColor: "#FFC03F", // amarelo
+        backgroundColor: "#FFC03F",
+        margin: 10,
         borderRadius: 20,
         paddingVertical: 12,
         paddingHorizontal: 20,
@@ -87,13 +89,45 @@ export default function Index() {
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
-        elevation: 5, // sombra no Android
+        elevation: 5,
       }}
       onPress={() => console.log("Botão clicado")}
     >
-      <Ionicons name="location" size={24} color="black" style={{ marginRight: 8 }} />
+      <Ionicons name="location-sharp" size={24} color="black" style={{ marginRight: 8 }} />
       <Text style={{ fontSize: 20, color: "black" }}>Gerar Rota</Text>
     </TouchableOpacity>
+    <View
+      style={{
+        padding: 15,
+        backgroundColor: "#FFC03F",
+        height: 70,
+        marginTop: "auto",
+        alignItems: "center",
+        flexDirection: "row",
+        justifyContent: "space-between",
+      }}
+    >
+      <View
+        style={{
+          marginLeft: "20%", alignItems: "center",
+        }}
+      >
+      <Link href="/">
+      <Ionicons name="location-sharp" size={24} color="#555555" />
+      </Link>
+      <Text style={{ color: "black" }}>Rotas</Text>
+      </View>
+      <View
+        style={{
+          marginRight: "20%", alignItems: "center",
+        }}
+      >
+      <Link href="/about">
+      <Ionicons name="information-circle-sharp" size={24} color="#555555" />
+      </Link>
+      <Text style={{ color: "black" }}>Sobre</Text>
+      </View>
+    </View>
     </View>
   );
 }
